@@ -1,13 +1,202 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "aquafina-script";
+  src: url("/public/asset/aquafina_script.ttf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "jetbrains";
+  src: url("/public/asset/jetbrains.ttf");
 }
+
+@font-face {
+  font-family: "jetbrains-italic";
+  src: url("/public/asset/jetbrains-italic.ttf");
+}
+
+@layer base {
+  body {
+    @apply font-jetbrains bg-gradient-to-r from-black from-55% to-[#001c40] to-85% dark:bg-blue-800 mx-4 my-4 flex-1 pt-6 pb-6 pl-4 pr-4 dark:text-sky-50 overflow-hidden;
+  }
+
+  h1 {
+    @apply text-6xl text-center text-sky-900 dark:text-sky-50;
+  }
+
+  h2 {
+    @apply text-4xl text-center text-sky-900 dark:text-sky-50;
+  }
+
+  h3 {
+    @apply text-2xl text-center text-sky-900 dark:text-sky-50;
+  }
+
+  h4 {
+    @apply text-center text-lg text-slate-700 bg-sky-300 rounded-xl w-[50%] ml-[25%];
+  }
+
+  h5 {
+    @apply text-left text-white bg-emerald-800 rounded-sm w-[50%] ml-[25%];
+  }
+
+  h6 {
+    @apply text-sm text-white bg-transparent;
+  }
+}
+
+@layer components {}
+
+select {
+  @apply text-pretty font-bold text-purple-800 bg-emerald-100 border-2 border-emerald-700;
+}
+
+button.send {
+  @apply hover:cursor-pointer
+}
+
+.brace {
+  @apply text-sky-500 dark:text-slate-300 z-10 font-bold align-text-top;
+}
+
+.abc {
+  @apply text-sky-200 dark:text-sky-50 font-bold;
+}
+
+.initial {
+  @apply text-sky-600 dark:text-slate-300 font-bold;
+}
+
+div.contactLink {
+  @apply bg-transparent absolute p-1 mt-[21vh] ml-[20vw] text-emerald-100 text-pretty hover:bg-white hover:text-black hover:font-bold text-center min-w-10 hover:cursor-pointer z-50;
+}
+
+div.thumbsLinks {
+  @apply flex bg-transparent w-[80vw] absolute mt-[12vh] ml-[20vw];
+}
+
+div.thumb{
+  @apply  text-lg float-left rounded-lg p-4 text-sky-200 text-pretty hover:bg-white hover:text-blue-700 hover:border-blue-700 hover:border-2 hover:font-bold text-center hover:cursor-pointer hover:opacity-70 z-50;
+}
+
+div.userStats {
+  @apply bg-transparent p-1 absolute mt-[21vh] ml-[50vw] text-sky-100 w-[35vw] z-50;
+}
+
+span.visitorName {
+  @apply text-xl font-extralight font-jetbrains-italic;
+}
+
+div.viewOptions {
+  @apply bg-transparent p-1 absolute mt-[20vh] ml-[26vw] text-purple-100 w-[30vw] z-50;
+}
+
+div.blackhole {
+  @apply m-5 h-[100vh] w-[100vw] opacity-80 bg-blackhole bg-[top_10vh_left_10vw] bg-no-repeat absolute;
+}
+
+.lazySusan {
+  @apply h-full w-full;
+}
+
+.lazySusanLegend {
+  @apply absolute p-2 inset-x-0 bottom-16 transition-all ease-in-out text-center opacity-65 text-5xl text-sky-100 dark:text-emerald-100 dark:bg-slate-600;
+}
+
+div.lazySusanWrapper {
+  @apply w-11/12 h-[65vh] opacity-40 flex-1 bg-starfield bg-repeat animate-bgshift overflow-hidden border-slate-100 border-2 rounded-lg top-6;
+}
+
+div.lazySusanFrame {
+  @apply mt-[10%] text-gray-950 h-[70vh] w-auto relative overflow-hidden text-pretty text-xl z-10;
+}
+
+/* p.freehand,
+span.freehand {
+  @apply font-aquafina-script text-2xl dark:text-white;
+} */
+
+/* p.inset,
+span.inset {
+  @apply mx-10 rounded-md bg-slate-200 text-sky-700 border-2 border-sky-300 text-xl text-wrap dark:text-white dark:bg-blue-800 dark:border-b-blue-400;
+} */
+
+/* div.yogaSquatch {
+  @apply bg-yoga-squatch bg-center bg-no-repeat h-full w-full;
+} */
+
+/* div.overture{
+  @apply bg-overture bg-center bg-no-repeat h-fit w-fit;
+} */
+
+/* div.earthEgg{
+  @apply bg-earth-egg bg-center bg-no-repeat h-fit w-fit;
+} */
+
+div.blurbSubject {
+  @apply text-2xl text-sky-600 top-6 left-8 absolute text-pretty;
+}
+
+div.blurbExperience {
+  @apply text-2xl text-pretty text-slate-600 top-20 left-4 absolute;
+}
+
+div.star {
+  @apply absolute opacity-95 w-52 h-52 z-20 rounded-full bg-white shadow-[0px_0px_40px_15px_white];
+}
+
+div.corona {
+  @apply relative m-auto z-20 top-0 left-0 right-0 bottom-0 w-6 animate-starshine;
+}
+
+div.corona_rev {
+  @apply relative m-auto z-20 top-0 left-0 right-0 bottom-0 w-6 animate-starshine_rev;
+}
+
+div.ray {
+  @apply bg-gradient-to-t from-transparent to-white absolute opacity-10 z-10 rounded-[80%_80%_0_0];
+}
+
+.ray1 {
+  @apply h-56 w-12 rotate-180 -top-44 left-4;
+}
+
+.ray2 {
+  @apply h-36 w-6 rotate-[220deg] -top-24 left-20;
+}
+
+.ray3 {
+  @apply h-40 w-16 rotate-[250deg] -top-20 left-28;
+}
+
+.ray4 {
+  @apply h-36 w-7 rotate-[305deg] top-8 left-24;
+}
+
+.ray5 {
+  @apply h-40 w-11 -rotate-[15deg] top-16 left-10;
+}
+
+.ray6 {
+  @apply h-28 w-16 rotate-[30deg] top-12 -left-10;
+}
+
+.ray7 {
+  @apply h-56 w-6 rotate-[70deg] -top-9 -left-10;
+}
+
+.ray8 {
+  @apply h-40 w-20 rotate-[100deg] -top-11 -left-24;
+}
+
+.ray9 {
+  @apply h-24 w-6 rotate-[120deg] -top-16 -left-14;
+}
+
+.ray10 {
+  @apply h-56 w-10 rotate-[150deg] -top-48 -left-16;
+}
+
+@layer utilities {}
