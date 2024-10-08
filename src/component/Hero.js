@@ -35,9 +35,10 @@ import {
   principalReturnVariants,
 } from "../util.tsx";
 
-function Hero() {
+function Hero({ props }) {
   const [firstInitialBehavior, setFirstInitialBehavior] = useState("dance");
   const [secondInitialBehavior, setSecondInitialBehavior] = useState("vibrate");
+  const [logoBehavior, setLogoBehavior] = useState("bouncing");
   const [playGong] = useSound(gong);
   const [playFlutter] = useSound(flutter);
   const [playIntro] = useSound(intro);
@@ -141,6 +142,14 @@ function Hero() {
     animateSparkle2,
   ]);
 
+  const activateLogoAnimation = () => {
+    animateChars.start(logoBehavior);
+    setLogoBehavior(logoBehavior === "bouncing" ? "twirling" : "bouncing");   
+    clickFirstInitial();
+    clickSecondInitial();
+      
+  };
+
   const clickFirstInitial = () => {
     animateFirstInitial.start(firstInitialBehavior);
     setFirstInitialBehavior(
@@ -155,6 +164,10 @@ function Hero() {
     );
   };
 
+  const easterEggHover = () => {
+    document.body.style.cursor = "url(" + egg + "), pointer";
+    return props.handleHover;
+  };
   return (
     <>
       <motion.div
@@ -213,7 +226,7 @@ function Hero() {
         <motion.div
           custom={{
             x: "38vw",
-            y: "35vh", 
+            y: "35vh",
             slide: dPosX,
             constRotate: "0",
             spinDelay: 0,
@@ -225,7 +238,8 @@ function Hero() {
           animate={animateFirstInitial}
           style={fixedStyle}
           className="initial"
-          whileHover={{ cursor: "url(" + egg + "), pointer" }}
+          whileHover={easterEggHover}
+          onHoverEnd={() => {document.body.style.cursor = "revert";}}
           onClickCapture={playFlutter}
           onClick={clickFirstInitial}
         >
@@ -241,11 +255,9 @@ function Hero() {
           }}
           variants={abcVariants}
           initial="hidden"
-          whileHover={{ cursor: "url(" + egg + "), pointer" }}
           animate={animateChars}
           style={alphabetStyle}
           className="abc"
-          onClick={playIntro}
         >
           <img src={capitalO} alt="O" />
         </motion.div>
@@ -260,9 +272,13 @@ function Hero() {
           }}
           variants={abcVariants}
           initial="hidden"
+          whileHover={easterEggHover}
+          onHoverEnd={() => {document.body.style.cursor = "revert";}}
           animate={animateChars}
           style={alphabetStyle}
           className="abc"
+          onClickCapture={playIntro}
+          onClick={activateLogoAnimation}
         >
           <img src={capitalN} alt="N" />
         </motion.div>
@@ -270,7 +286,7 @@ function Hero() {
         <motion.div
           custom={{
             x: "53vw",
-            y: "35vh", 
+            y: "35vh",
             slide: bPosX,
             constRotate: "1",
             spinCycle: 0.5,
@@ -282,7 +298,8 @@ function Hero() {
           className="initial"
           onClickCapture={playGong}
           onClick={clickSecondInitial}
-          whileHover={{ cursor: "url(" + egg + "), pointer" }}
+          whileHover={easterEggHover}
+          onHoverEnd={() => {document.body.style.cursor = "revert";}}
         >
           <img src={capitalB} alt="B" />
         </motion.div>

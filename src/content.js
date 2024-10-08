@@ -10,6 +10,10 @@ const cssLink = {
   linkText: "CSS",
   linkUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS",
 };
+const dockerLink = {
+  linkText: "Docker",
+  linkUrl: "https://www.docker.com/get-started/",
+};
 const dotnetLink = {
   linkText: "ASP.NET Core",
   linkUrl: "https://dotnet.microsoft.com/en-us/apps/aspnet",
@@ -17,6 +21,10 @@ const dotnetLink = {
 const azureLink = {
   linkText: "Azure Pipelines",
   linkUrl: "https://azure.microsoft.com/en-us/products/devops/pipelines/",
+};
+const framermotionLink = {
+  linkText: "Framer-Motion",
+  linkUrl: "https://www.framer.com/motion/",
 };
 const tsxLink = {
   linkText: "TypeScript",
@@ -38,6 +46,14 @@ const xmlLink = {
   linkText: "XML",
   linkUrl: "https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction",
 };
+const nodejsLink = {
+  linkText: "Node.js",
+  linkUrl: "https://nodejs.org/en/about",
+};
+const reactjsLink = {
+  linkText: "React JS", 
+  linkUrl: "https://react.dev/",
+}
 const sfsLink = {
   linkText: "Student Fiscal Services",
   linkUrl: "https://finance.uw.edu/sfs/",
@@ -237,7 +253,7 @@ export const projectsSkills = [
     title: "Data",
     topics: [
       {
-        name: "tSQL & SQL Server",
+        name: "SQL Server, tSQL",
         experience: "15+ years",
         links: [],
         synopsis:
@@ -245,7 +261,7 @@ export const projectsSkills = [
         technology: [],
       },
       {
-        name: "tSQLt",
+        name: "tSQLt Unit Tests",
         experience: "2+ years",
         links: [],
         synopsis: "Indispensible unit-testing tool when migrating SQL data systems or developing Enterprise-level SQL Server solutions. Well-formed tSQLt enforces atomic-level logic checks, compilation checks and custom schematics checks for all SQL components introduced to the CID. This greatly reduces run-time errors and guarantees uniformity of SQL code. Robust SQL Server data schematics begin with tSQLt Unit Tests.",
@@ -268,10 +284,10 @@ export const projectsSkills = [
         technology: [],
       },
       {
-        name: "Security",
+        name: "Data Security",
         experience: "15+ years",
         links: [],
-        synopsis: "SQL Server offers database acounts, database roles, enterprise encryption, user accounts, user roles and user schemas to define security unique to the business solution.",
+        synopsis: "SQL Server offers database acounts, database roles, enterprise encryption, user accounts, user roles and user schemas to define security unique to the business solution. Majority of my projects have chosen SQL Server for its reliabilty, utility and ubiquity when dealing with sensitive data. But even the simpler things gretly improve security: user training. Most intrusions are the result of human error rather than technical weakness. Well-trained users are the strongest front-line defense.",
         technology: [],
       },
     ],
@@ -282,33 +298,33 @@ export const projectsSkills = [
       {
         name: "NodeJS, React",
         experience: "1+ years",
-        links: [],
+        links: [nodejsLink, reactjsLink, framermotionLink],
         synopsis:
-          "This site designed using NodeJS and with React architecture.",
-        technology: [],
+          "This site runs with NodeJS asynchronous runtime using React JS architechture. Most of the elements are React components. Many of those elements are again animated using Framer-Motion. ",
+        technology: ["Framer-Motion", "Node.js", "React JS"],
       },
       {
         name: "TailwindCSS",
         experience: "1+ years",
         links: [],
-        synopsis: "This site styled with TailwindCSS which limits or obviates the messiness of writing custom CSS classes. TailwindCSS is packed with innate functionality and is highly configurable which makes CSS  .",
+        synopsis: "This site styled with TailwindCSS which limits or obviates the messiness and overlap of hand-written CSS classes. TailwindCSS is packed with explicit classes,  innate functionality and is easily configured to custom settings. Levereging TailwindCSS, custom website styles are easily designed and specified before any code is written or content delivered. Custom style templates are created with equal ease.",
         technology: [],
       },
       {
         name: "Docker",
         experience: "1+ years",
-        links: [],
+        links: [dockerLink],
         synopsis:
-          "Destroyed a PC installing and uninstalling Docker on it.",
-        technology: [],
+          "I retired a workhorse PC by installing and then uninstalling Docker on it. This software is not for the faint of processing power. And I did learn quite a bit about Containers.",
+        technology: ["Docker"],
       },
-      { name: "HTML5", experience: "10+ years", synopsis: "I took advantage of the new standards when they became available in 2008 because it offers built-in solutions to the commonest problem: interoperability." },
+      { name: "HTML5", experience: "10+ years", synopsis: "HTML5 is the standard: it offers built-in solutions to the commonest developer problems.... interoperability." },
       {
-        name: "CSS",
-        experience: "15+ years",
-        links: [],
+        name: "Framer-Motion",
+        experience: "1+ years",
+        links: [framermotionLink, reactjsLink],
         synopsis:
-          "  They perform dances that mimic the movements of animals and plants, symbolizing the renewal of life. The Spring Awakening is also a time for planting new seeds and making wishes for the future. Trolls believe that the energy of the festival helps to awaken the spirits of the forest and bring about a prosperous season.",
+          "Complex animations such as this site's 'intro' created using Framer-Motion - significantly reducing the amount of code written and taking the time-consuming tedium of creating animations.",
         technology: [],
       },
     ],

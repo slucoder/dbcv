@@ -272,9 +272,9 @@ export const principalEscapeVariants = {
     opacity: 1,
     x: "-60vw",
     y: "+10vh",
-    rotate: 42,
+    rotate: 44,
     transition: {
-      duration: 5,
+      duration: 5.5,
       repeat: 0,
       type: "anticipate",
       ease: "easeInOut",
@@ -521,6 +521,48 @@ export const secondInitialVariants = {
     },
   }),
 };
+function getRando(q: number) {
+  return Math.floor(Math.random() * q) + 1;
+}
+function getRandomEastWest() {
+  return Math.random() >= 0.5 ? -1 : 1;
+}
+function getRandomDecimal(){
+  const rando = Math.random();
+  return (rando === 0) ? 0.1 : rando;
+};
+const randomTwirlVariants = () => {
+  const rando = getRando(2);
+  const x = getRando(4);
+  const y = getRando(4);
+  const xDir = getRandomEastWest();
+  const yDir = getRandomEastWest();
+  const randoTwirls = {
+    rotateX: 360 * x * xDir,
+    rotateY: 360 * y * yDir,
+    transition: {
+      duration: (rando * 3) + yDir,
+      ease: xDir > 0 ? "circInOut" : "backInOut",
+    },
+  };
+  return randoTwirls;
+};
+const randomBounceVariants = () =>{
+  const rep = getRando(4);
+  const randoScale = getRandomDecimal();
+  const dur = getRandomDecimal();
+  const bounceY = (getRando(2) + dur).toString() + "vh";
+  const randoBounces = {
+    y: ["-1vh", bounceY, "-1vh"],
+    scale: [1, randoScale, 1],
+    transition: {
+      duration: dur,
+      ease: dur > 0.5 ? "circInOut" : "backInOut",
+      repeat: rep,
+    },
+  };
+  return randoBounces;
+};
 export const abcVariants = {
   hidden: (custom) => ({
     opacity: 0,
@@ -562,7 +604,10 @@ export const abcVariants = {
       ease: "easeOut",
     },
   }),
+  bouncing: randomBounceVariants,
+  twirling: randomTwirlVariants,
 };
+
 export const typeInTextProps = {
   charInterval: "125",
   displayText: "Software Engineer",

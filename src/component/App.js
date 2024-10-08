@@ -30,6 +30,12 @@ function App() {
   const handleVisitorName = (visitor) => {
     setVisitorName(visitor);
   };
+  const handleHover = () =>{
+    tallyHovers(hoverCount + 1);
+  };
+  const handleClick = () =>{
+    tallyClicks(clickCount + 1);
+  };
   return (
     <>
       <div className="blackhole"></div>
@@ -41,7 +47,7 @@ function App() {
         data-tooltip-float={false}
         aria-label={`${dbHero} Banner`}
       >
-        <Hero key={visitor} className="z-30" />
+        <Hero key={visitor} props={{handleClick:{handleClick}, handleHover:{handleHover},}}  className="z-30" />
         <Tooltip id="tooltip-hero" style={tooltipStyle}></Tooltip>
       </div>
       <div aria-label={`${dbHero} Animated Title Logo`} style={typeInTextStyle}>
