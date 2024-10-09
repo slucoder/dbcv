@@ -70,19 +70,19 @@ button.send {
 }
 
 div.contactLink {
-  @apply bg-transparent absolute p-1 mt-[21vh] ml-[20vw] text-emerald-100 text-pretty hover:bg-white hover:text-black hover:font-bold text-center min-w-10 hover:cursor-pointer z-50;
+  @apply bg-transparent absolute mt-[21vh] ml-[20vw] pb-2 text-emerald-100 text-pretty hover:bg-white hover:rounded-lg hover:text-black hover:font-bold text-center min-w-10 hover:cursor-pointer z-50;
 }
 
 div.thumbsLinks {
-  @apply flex bg-transparent w-[80vw] absolute mt-[12vh] ml-[20vw];
+  @apply flex bg-transparent h-10 w-auto absolute mt-[12vh] ml-[30vw] border-2 border-sky-300 border-opacity-50 rounded-lg;
 }
 
 div.thumb{
-  @apply  text-lg float-left rounded-lg p-4 text-sky-200 text-pretty hover:bg-white hover:text-blue-700 hover:border-blue-700 hover:border-2 hover:font-bold text-center hover:cursor-pointer hover:opacity-70 z-50;
+  @apply  text-base float-left p-2 text-sky-200 text-pretty hover:bg-white hover:text-blue-700 hover:border-blue-700 hover:border-2 hover:font-bold text-center hover:cursor-pointer hover:rounded-lg hover:opacity-70 z-50;
 }
 
 div.userStats {
-  @apply bg-transparent p-1 absolute mt-[21vh] ml-[50vw] text-sky-100 w-[35vw] z-50;
+  @apply bg-transparent pb-4 absolute mt-[21vh] ml-[50vw] text-sky-100 w-[35vw] z-50;
 }
 
 span.visitorName {

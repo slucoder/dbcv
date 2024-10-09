@@ -16,7 +16,6 @@ import softbikebell from "../audio/soft-bikebell.wav";
 import { projectsSkills } from "../content.js";
 import { useState } from "react";
 
-// const navTopics = ["Navigating", "Scripting", "Data", "Web", "Projects", "About"];
 const navTopics = projectsSkills.map((ps) => {
   return ps.title;
 });
@@ -48,7 +47,6 @@ const LazySusan = ({
     setCurrentTopicIndex(index);
     clickIncrementer();
   }
-
   const lazySusanFrames = projectsSkills.map((topic, j) => (
     <div
       className="lazySusanFrame"

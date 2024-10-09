@@ -22,9 +22,17 @@ const azureLink = {
   linkText: "Azure Pipelines",
   linkUrl: "https://azure.microsoft.com/en-us/products/devops/pipelines/",
 };
+const foxproLink = {
+  linkText: "FoxPro",
+  linkUrl: "https://en.wikipedia.org/wiki/FoxPro",
+};
 const framermotionLink = {
   linkText: "Framer-Motion",
   linkUrl: "https://www.framer.com/motion/",
+};
+const tsqltLink = {
+  linkText: "tSQLt",
+  linkUrl: "https://tsqlt.org/",
 };
 const tsxLink = {
   linkText: "TypeScript",
@@ -51,9 +59,9 @@ const nodejsLink = {
   linkUrl: "https://nodejs.org/en/about",
 };
 const reactjsLink = {
-  linkText: "React JS", 
+  linkText: "React JS",
   linkUrl: "https://react.dev/",
-}
+};
 const sfsLink = {
   linkText: "Student Fiscal Services",
   linkUrl: "https://finance.uw.edu/sfs/",
@@ -168,7 +176,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Leaf through headings with pointers at far ◄left and right► on screen. Each page hosts a subject. Each Shining Star on the page expands to reveal the details of that subject, exactly as this message has done.",
-        technology: [],
       },
       {
         name: "Contact",
@@ -176,7 +183,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Click this Star to open the Contact form! Or at any point, click the the 'Contact' link below the page banner to send a custom message!",
-        technology: [],
       },
       {
         name: "Shining Stars",
@@ -184,7 +190,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "'Shining Stars' hold details about the headings. Hover each Shining Star to display more information. Shining Stars are animated using React, Javascript, Typescript and TailwindCSS.",
-        technology: [],
       },
       {
         name: "About",
@@ -192,7 +197,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Don Brown: experienced Software Engineer developing solutions for retail, health care, business-to-business, non-profit and educational environments. Don Brown offers deep IT skills to best fit the business needs with the most scalable and efficient technology. Resumé upon request, please use my Contact Form!",
-        technology: [],
       },
     ],
   },
@@ -205,7 +209,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Javascript was initially a robust client-side tool for used for validation and user experience. Development libraries such as jQuery then made Javascript a very handy tool for web APIs and asynchronous calls. V8 Engine expanded Javascript robustness to include server-side capabilities, allowing for pure Javascript developemnt environmnets such as Node.js. This website is created using Javascript architectures Node.js with React.",
-        technology: [],
       },
       {
         name: "jQuery, Bootstrap",
@@ -213,7 +216,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Robust, plug-and-lay Javascript / CSS library set which made rapid, RESTful development even faster. The heavy lifting with Javascript and CSS is alrady done.for the developer, leaving room for creatvity and 'testing the limits'.",
-        technology: [],
       },
       {
         name: "TypeScript (TSX)",
@@ -221,7 +223,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Typescript (TSX) brings strong, custom typing to Javascript's weak typing - putting regular Javascript on par with venerable dotNET's typing granularity. Writing and compiling with TSX prevents innumerable errors within the CID cycle. Prior to TSX the devlopers (I, we) were compelled to write custom scripts to type and validate objects, or risk unknown and often silect exceptions upon deployment.",
-        technology: [],
       },
       {
         name: "C#",
@@ -229,7 +230,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Powerful script I have used to construct several solutions from web applications that gather large amounts of user-response data to desktop applications that are able to perform complex applications without compromising the CPU. This truly is a workhorse script. In learning C# I have learned to read and use other similar scripts such as Java, C+ and Python.",
-        technology: [],
       },
       {
         name: "Python",
@@ -237,7 +237,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "User-friendliness, excellent I/O capabilities and the wealth of open-source data-analysis functionality make this a go-to script for educators and researchers.",
-        technology: [],
       },
       {
         name: "PowerShell",
@@ -245,7 +244,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "High-level script, PowerShell enables piping of objects from server to server, porting files, porting logic,examining remote server status and countless other tasks end-to-end. Essential tool for all engineers.",
-        technology: [],
       },
     ],
   },
@@ -258,14 +256,13 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "From SQL 2000 to the current SQL 2024, this workhorse has served the majority of my solutions that require data collection, security and manipulation. tSQL includes vast built-in functionality that prevents developers from 're-inventing their wheels' and keeps current with industry CID needs. From SQL Management Studio one can write, analyze, tune and deploy SQL code from the unified workspace.",
-        technology: [],
       },
       {
         name: "tSQLt Unit Tests",
         experience: "2+ years",
         links: [],
-        synopsis: "Indispensible unit-testing tool when migrating SQL data systems or developing Enterprise-level SQL Server solutions. Well-formed tSQLt enforces atomic-level logic checks, compilation checks and custom schematics checks for all SQL components introduced to the CID. This greatly reduces run-time errors and guarantees uniformity of SQL code. Robust SQL Server data schematics begin with tSQLt Unit Tests.",
-        technology: [],
+        synopsis:
+          "Indispensible unit-testing tool when migrating SQL data systems or developing Enterprise-level SQL Server solutions. Well-formed tSQLt enforces atomic-level logic checks, compilation checks and custom schematics checks for all SQL components introduced to the CID. This greatly reduces run-time errors and guarantees uniformity of SQL code. Robust SQL Server data schematics begin with tSQLt Unit Tests.",
       },
       {
         name: "Stored Procedure",
@@ -273,7 +270,6 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Stored Procedures (sprocs) are powerful, re-usable queries, which can manipulate data, provide business logic, and communicate data within Server layers. Sprocs typically have several tSQLt unit tests to pass before being incorporated into the code body because of their high availability. ",
-        technology: [],
       },
       {
         name: "Optimization",
@@ -281,14 +277,13 @@ export const projectsSkills = [
         links: [],
         synopsis:
           "Optimization involves analyzing and adjusting SQL instructions so that they perform at ideal speed while making the lightest possible demands on Server resources. Internal tools such as SQL Query Analyzer and Profiler help isolate the most costly SQL statements. Indexing, normalization, leverging innate functions over custom functions are all first steps in Optimization.",
-        technology: [],
       },
       {
         name: "Data Security",
         experience: "15+ years",
         links: [],
-        synopsis: "SQL Server offers database acounts, database roles, enterprise encryption, user accounts, user roles and user schemas to define security unique to the business solution. Majority of my projects have chosen SQL Server for its reliabilty, utility and ubiquity when dealing with sensitive data. But even the simpler things gretly improve security: user training. Most intrusions are the result of human error rather than technical weakness. Well-trained users are the strongest front-line defense.",
-        technology: [],
+        synopsis:
+          "SQL Server offers database acounts, database roles, enterprise encryption, user accounts, user roles and user schemas to define security unique to the business solution. Majority of my projects have chosen SQL Server for its reliabilty, utility and ubiquity when dealing with sensitive data. But even the simpler things gretly improve security: user training. Most intrusions are the result of human error rather than technical weakness. Well-trained users are the strongest front-line defense.",
       },
     ],
   },
@@ -307,8 +302,8 @@ export const projectsSkills = [
         name: "TailwindCSS",
         experience: "1+ years",
         links: [],
-        synopsis: "This site styled with TailwindCSS which limits or obviates the messiness and overlap of hand-written CSS classes. TailwindCSS is packed with explicit classes,  innate functionality and is easily configured to custom settings. Levereging TailwindCSS, custom website styles are easily designed and specified before any code is written or content delivered. Custom style templates are created with equal ease.",
-        technology: [],
+        synopsis:
+          "This site styled with TailwindCSS which limits or obviates the messiness and overlap of hand-written CSS classes. TailwindCSS is packed with explicit classes,  innate functionality and is easily configured to custom settings. Levereging TailwindCSS, custom website styles are easily designed and specified before any code is written or content delivered. Custom style templates are created with equal ease.",
       },
       {
         name: "Docker",
@@ -318,14 +313,18 @@ export const projectsSkills = [
           "I retired a workhorse PC by installing and then uninstalling Docker on it. This software is not for the faint of processing power. And I did learn quite a bit about Containers.",
         technology: ["Docker"],
       },
-      { name: "HTML5", experience: "10+ years", synopsis: "HTML5 is the standard: it offers built-in solutions to the commonest developer problems.... interoperability." },
+      {
+        name: "HTML5",
+        experience: "10+ years",
+        synopsis:
+          "HTML5 is the standard: it offers built-in solutions to the commonest developer problems.... interoperability.",
+      },
       {
         name: "Framer-Motion",
         experience: "1+ years",
         links: [framermotionLink, reactjsLink],
         synopsis:
           "Complex animations such as this site's 'intro' created using Framer-Motion - significantly reducing the amount of code written and taking the time-consuming tedium of creating animations.",
-        technology: [],
       },
     ],
   },
@@ -333,55 +332,42 @@ export const projectsSkills = [
     title: "Projects",
     topics: [
       {
-        name: "Workday Fiancial Conversion",
+        name: "Workday Conversion",
         experience: "University of Washington (UW)",
-        links: [],
+        links: [sqlLink, workdayLink, tsqltLink, azureLink],
         synopsis:
           "UW committed to interfacing all billing to the Workday Financial Management ERP as of Fall 2023. All custom finance software at UW had until that time to become security-compliant and Workday capable. I oversaw the developent of this technology to replace legacy software for the Student Fiscal Services (SFS) department. We created secure, web-based technology which utilized existing UW resources to successfully link SFS staff with all necessary IT systems, including UW Workday. New functionality added to the solution automated tme-consuming tasks that were previously done by hand and eye.",
-        technology: [
-          "ASP.NET Core",
-          "C#",
-          "SQL Server",
-          "HTML|CSS|Javascript",
-          "Typescript",
-          "Telerik Kendo",
-          "Azure CID",
-        ],
+      },
+      {
+        name: "Student Fiscal Services (SFS) Infrastructure",
+        experience: "University of Washington (UW)",
+        links: [foxproLink, shibbolethLink, sqlLink, workdayLink],
+        synopsis:
+          "In 2018, SFS relied on legacy, outdated FoxPro applications for internal operations. Establishing secure web capabilities became imperative. I provisioned web IIS and SQL servers from central UWIT and installed Shibboleth security which leveraged existing UW domain services, groups and user accounts. Automated migration kept financial data current with SQL Server while development of robust web functionality progressed. Completed solution fully integrated into Workday.",
+      },
+      {
+        name: "Worktag Translations",
+        experience: "",
+        links: [],
+        synopsis: "",
+      },
+      {
+        name: "SQL Deployment Scripts Rebuild",
+        experience: "",
+        links: [],
+        synopsis: "",
       },
       {
         name: "",
         experience: "",
         links: [],
         synopsis: "",
-        technology: [],
       },
       {
         name: "",
         experience: "",
         links: [],
         synopsis: "",
-        technology: [],
-      },
-      {
-        name: "",
-        experience: "",
-        links: [],
-        synopsis: "",
-        technology: [],
-      },
-      {
-        name: "",
-        experience: "",
-        links: [],
-        synopsis: "",
-        technology: [],
-      },
-      {
-        name: "",
-        experience: "",
-        links: [],
-        synopsis: "",
-        technology: [],
       },
     ],
   },

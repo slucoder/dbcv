@@ -24,11 +24,13 @@ import {
   abcVariants,
   braceVariants,
   containerVariants,
+  firstInitalsAnimationOptions,
   firstInitialVariants,
   secondInitialVariants,
   principalEntranceDelay,
   principalBouncingDelay,
   principalExitDelay,
+  secondInitalsAnimationOptions,
   sparkler1Variants,
   sparkler2Variants,
   principalEscapeVariants,
@@ -36,8 +38,9 @@ import {
 } from "../util.tsx";
 
 function Hero({ props }) {
-  const [firstInitialBehavior, setFirstInitialBehavior] = useState("dance");
-  const [secondInitialBehavior, setSecondInitialBehavior] = useState("vibrate");
+  const [firstInitialBehavior, setFirstInitialBehavior] = useState("dancing");
+  const [secondInitialBehavior, setSecondInitialBehavior] =
+    useState("vibrating");
   const [logoBehavior, setLogoBehavior] = useState("bouncing");
   const [playGong] = useSound(gong);
   const [playFlutter] = useSound(flutter);
@@ -141,32 +144,49 @@ function Hero({ props }) {
     animateSparkle1,
     animateSparkle2,
   ]);
-
+  function getFirstInitialsAnimationOption() {
+    const j =
+      firstInitalsAnimationOptions.indexOf(firstInitialBehavior) + 1 >
+      firstInitalsAnimationOptions.length - 1
+        ? 0
+        : firstInitalsAnimationOptions.indexOf(firstInitialBehavior) + 1;
+    return firstInitalsAnimationOptions[j];
+  }
+  function getSecondInitialsAnimationOption() {
+    const j =
+      secondInitalsAnimationOptions.indexOf(secondInitialBehavior) + 1 >
+      secondInitalsAnimationOptions.length - 1
+        ? 0
+        : secondInitalsAnimationOptions.indexOf(secondInitialBehavior) + 1;
+    return secondInitalsAnimationOptions[j];
+  }
   const activateLogoAnimation = () => {
     animateChars.start(logoBehavior);
-    setLogoBehavior(logoBehavior === "bouncing" ? "twirling" : "bouncing");   
-    clickFirstInitial();
-    clickSecondInitial();
-      
+    animateFirstInitial.start(firstInitialBehavior);
+    animateSecondInitial.start(secondInitialBehavior);
+    setLogoBehavior(logoBehavior === "bouncing" ? "twirling" : "bouncing");
+    setFirstInitialBehavior(getFirstInitialsAnimationOption());
+    setSecondInitialBehavior(getSecondInitialsAnimationOption());
   };
 
   const clickFirstInitial = () => {
     animateFirstInitial.start(firstInitialBehavior);
+
     setFirstInitialBehavior(
-      firstInitialBehavior === "dance" ? "outro" : "dance"
+      firstInitialBehavior === "dancing" ? "outro" : "dancing"
     );
   };
 
   const clickSecondInitial = () => {
     animateSecondInitial.start(secondInitialBehavior);
+
     setSecondInitialBehavior(
-      secondInitialBehavior === "vibrate" ? "outro" : "vibrate"
+      secondInitialBehavior === "vibrating" ? "outro" : "vibrating"
     );
   };
 
   const easterEggHover = () => {
     document.body.style.cursor = "url(" + egg + "), pointer";
-    return props.handleHover;
   };
   return (
     <>
@@ -238,10 +258,18 @@ function Hero({ props }) {
           animate={animateFirstInitial}
           style={fixedStyle}
           className="initial"
-          whileHover={easterEggHover}
-          onHoverEnd={() => {document.body.style.cursor = "revert";}}
+          whileHover={() => {
+            easterEggHover();            
+          }}
+          onHoverStart={props.handleHover}
+          onHoverEnd={() => {
+            document.body.style.cursor = "revert";
+          }}
           onClickCapture={playFlutter}
-          onClick={clickFirstInitial}
+          onClick={() => {
+            clickFirstInitial();
+            props.handleClick();
+          }}
         >
           <img src={capitalD} alt="D" />
         </motion.div>
@@ -273,7 +301,10 @@ function Hero({ props }) {
           variants={abcVariants}
           initial="hidden"
           whileHover={easterEggHover}
-          onHoverEnd={() => {document.body.style.cursor = "revert";}}
+          onHoverStart={props.handleHover}
+          onHoverEnd={() => {
+            document.body.style.cursor = "revert";
+          }}
           animate={animateChars}
           style={alphabetStyle}
           className="abc"
@@ -297,9 +328,15 @@ function Hero({ props }) {
           style={fixedStyle}
           className="initial"
           onClickCapture={playGong}
-          onClick={clickSecondInitial}
+          onClick={() => {
+            clickSecondInitial();
+            props.handleClick();
+          }}
           whileHover={easterEggHover}
-          onHoverEnd={() => {document.body.style.cursor = "revert";}}
+          onHoverStart={props.handleHover}
+          onHoverEnd={() => {
+            document.body.style.cursor = "revert";
+          }}
         >
           <img src={capitalB} alt="B" />
         </motion.div>

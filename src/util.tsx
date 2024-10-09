@@ -382,6 +382,8 @@ export const containerVariants = {
     opacity: 1,
   },
 };
+export const firstInitalsAnimationOptions = ["spinning", "dancing", "outro"];
+export const secondInitalsAnimationOptions = ["vibrating", "spinning", "dancing", "outro"];
 export const firstInitialVariants = {
   hidden: (custom) => ({
     opacity: 0.01,
@@ -423,7 +425,7 @@ export const firstInitialVariants = {
       ease: "easeOut",
     },
   },
-  dance: {
+  dancing: {
     opacity: 1,
     rotate: -360,
     rotateY: 360,
@@ -456,7 +458,6 @@ export const secondInitialVariants = {
   }),
   visible: (custom) => ({
     opacity: 1,
-    // y: "+35vh",
     scale: 1,
     rotate: custom.constRotate === "0" ? 360 : -360,
     transition: {
@@ -477,7 +478,7 @@ export const secondInitialVariants = {
       stiffness: 100,
     },
   }),
-  spinning: (custom) => ({
+  spinning: {
     rotate: 2880,
     rotateY: 360,
     transition: {
@@ -485,8 +486,8 @@ export const secondInitialVariants = {
       delay: 0.45,
       ease: "easeOut",
     },
-  }),
-  dance: {
+  },
+  dancing: {
     opacity: 1,
     rotate: 720,
     transition: {
@@ -504,7 +505,7 @@ export const secondInitialVariants = {
       delay: 0,
     },
   },
-  vibrate: (custom) => ({
+  vibrating: (custom) => ({
     x: [
       `calc(${custom.slide} + 3%)`,
       `calc(${custom.slide} - 3%)`,

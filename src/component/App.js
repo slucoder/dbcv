@@ -39,15 +39,15 @@ function App() {
   return (
     <>
       <div className="blackhole"></div>
-      <div
+      <div        
         data-tooltip-id="tooltip-hero"
-        data-tooltip-content="Banner: Framer-Motion, React JS, TypeScript, TailwindCSS."
+        data-tooltip-content="Hunt for Eggs!"
         data-tooltip-place="bottom-start"
-        data-tooltip-offset="100"
+        data-tooltip-offset="90"
         data-tooltip-float={false}
         aria-label={`${dbHero} Banner`}
       >
-        <Hero key={visitor} props={{handleClick:{handleClick}, handleHover:{handleHover},}}  className="z-30" />
+        <Hero key={visitor} props={{handleClick:handleClick, handleHover:handleHover,}}  className="z-30" />
         <Tooltip id="tooltip-hero" style={tooltipStyle}></Tooltip>
       </div>
       <div aria-label={`${dbHero} Animated Title Logo`} style={typeInTextStyle}>
