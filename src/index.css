@@ -77,8 +77,8 @@ div.thumbsLinks {
   @apply flex bg-transparent h-10 w-auto absolute mt-[12vh] ml-[30vw] border-2 border-sky-300 border-opacity-50 rounded-lg;
 }
 
-div.thumb{
-  @apply  text-base float-left p-2 text-sky-200 text-pretty hover:bg-white hover:text-blue-700 hover:border-blue-700 hover:border-2 hover:font-bold text-center hover:cursor-pointer hover:rounded-lg hover:opacity-70 z-50;
+div.thumb {
+  @apply text-base float-left p-2 text-sky-200 text-pretty hover:bg-white hover:text-blue-700 hover:border-blue-700 hover:border-2 hover:font-bold text-center hover:cursor-pointer hover:rounded-lg hover:opacity-70 z-50;
 }
 
 div.userStats {
@@ -112,28 +112,6 @@ div.lazySusanWrapper {
 div.lazySusanFrame {
   @apply mt-[10%] text-gray-950 h-[70vh] w-auto relative overflow-hidden text-pretty text-xl z-10;
 }
-
-/* p.freehand,
-span.freehand {
-  @apply font-aquafina-script text-2xl dark:text-white;
-} */
-
-/* p.inset,
-span.inset {
-  @apply mx-10 rounded-md bg-slate-200 text-sky-700 border-2 border-sky-300 text-xl text-wrap dark:text-white dark:bg-blue-800 dark:border-b-blue-400;
-} */
-
-/* div.yogaSquatch {
-  @apply bg-yoga-squatch bg-center bg-no-repeat h-full w-full;
-} */
-
-/* div.overture{
-  @apply bg-overture bg-center bg-no-repeat h-fit w-fit;
-} */
-
-/* div.earthEgg{
-  @apply bg-earth-egg bg-center bg-no-repeat h-fit w-fit;
-} */
 
 div.blurbSubject {
   @apply text-2xl text-sky-600 top-6 left-8 absolute text-pretty;
