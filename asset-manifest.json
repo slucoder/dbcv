@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/dbcv/static/css/main.fe50e37d.css",
+    "main.js": "/dbcv/static/js/main.77c20f3c.js",
+    "static/js/885.05a14e96.chunk.js": "/dbcv/static/js/885.05a14e96.chunk.js",
+    "static/js/453.be42175e.chunk.js": "/dbcv/static/js/453.be42175e.chunk.js",
+    "static/media/also-sprach-zarathustra.wav": "/dbcv/static/media/also-sprach-zarathustra.a647ae30a9c8a2dd303b.wav",
+    "static/media/starfield.png": "/dbcv/static/media/starfield.8ed27e466035058d40a5.png",
+    "static/media/gong.wav": "/dbcv/static/media/gong.148aa42641ae3731b6a1.wav",
+    "static/media/principal-escape.png": "/dbcv/static/media/principal-escape.bd34732fbcf78d335c17.png",
+    "static/media/blackhole.png": "/dbcv/static/media/blackhole.d09ee1af07374bc3b93c.png",
+    "static/media/principal-return.png": "/dbcv/static/media/principal-return.11fecdf75b15ac646668.png",
+    "static/media/flutter.wav": "/dbcv/static/media/flutter.6a079e13a2bb920ea319.wav",
+    "static/media/soft-bikebell.wav": "/dbcv/static/media/soft-bikebell.982bee03887c4e2495be.wav",
+    "static/media/bikebell.wav": "/dbcv/static/media/bikebell.91c6a2deeeb94ee17fce.wav",
+    "static/media/intro.wav": "/dbcv/static/media/intro.edc7db15665c3c7ce74e.wav",
+    "static/media/jetbrains-italic.ttf": "/dbcv/static/media/jetbrains-italic.dccdbbe7a9d119194e5e.ttf",
+    "static/media/jetbrains.ttf": "/dbcv/static/media/jetbrains.d08f929cab66fc19b568.ttf",
+    "static/media/aquafina_script.ttf": "/dbcv/static/media/aquafina_script.a21821428f4078f54ab6.ttf",
+    "static/media/capW.png": "/dbcv/static/media/capW.4ac2ba797409b4687afd.png",
+    "static/media/capD.png": "/dbcv/static/media/capD.31a384af2b1c95812ac1.png",
+    "static/media/capN2.png": "/dbcv/static/media/capN2.a5c3ba190191f46021f1.png",
+    "static/media/capN.png": "/dbcv/static/media/capN.3b18f22d360a0ecf108c.png",
+    "static/media/capO2.png": "/dbcv/static/media/capO2.6ac81c1a223631036091.png",
+    "static/media/capR.png": "/dbcv/static/media/capR.125dc1c67aa317c2f16b.png",
+    "static/media/capO.png": "/dbcv/static/media/capO.17acf6ca0c01f7a39fd4.png",
+    "static/media/capB.png": "/dbcv/static/media/capB.3d68e9325ca9b5d91d12.png",
+    "index.html": "/dbcv/index.html",
+    "main.fe50e37d.css.map": "/dbcv/static/css/main.fe50e37d.css.map",
+    "main.77c20f3c.js.map": "/dbcv/static/js/main.77c20f3c.js.map",
+    "885.05a14e96.chunk.js.map": "/dbcv/static/js/885.05a14e96.chunk.js.map",
+    "453.be42175e.chunk.js.map": "/dbcv/static/js/453.be42175e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe50e37d.css",
+    "static/js/main.77c20f3c.js"
+  ]
+}
