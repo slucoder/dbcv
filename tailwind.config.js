@@ -16,22 +16,23 @@ module.exports = {
         fadeIn: "fadeIn 5s linear",
         fadeOut: "fadeOut 2s linear",
       },
-      
-      backgroundImage: (theme) => ({
-        "gradient-radial-blue": "radial-gradient(#0000ff, #00004d)",
-        "gradient-conic-blue": "conic-gradient(#0000ff, #00004d, #0000e6, #4d4dff)",
+
+      backgroundImage: {
+        // "gradient-radial-blue": "radial-gradient(#0000ff, #00004d)",
+        // "gradient-conic-blue":
+        //   "conic-gradient(#0000ff, #00004d, #0000e6, #4d4dff)",
         starfield: 'url("./img/starfield/starfield.png")',
         "squatch-blackhole": 'url("./img/squatch/sasquatch-blackhole.png")',
-        "blackhole": 'url("./img/blackhole/blackhole.png")',
-      }),
+        blackhole: 'url("./img/blackhole/blackhole.png")',
+      },
       colors: {},
-      cursor:{ 
-        pointer : 'url("./img/nav/pointer.png"), pointer', 
+      cursor: {
+        pointer: 'url("./img/nav/pointer.png"), pointer',
         eyeball: 'url("./img/nav/cursor.png"), default',
       },
       fontFamily: {
         "aquafina-script": ["aquafina-script", "cursive", "sans"],
-        "TNR": ["Times New Roman", "serif"],
+        TNR: ["Times New Roman", "serif"],
         "franklin-gothic": ["franklin gothic", "mono"],
         jetbrains: ["jetbrains", "mono"],
         "jetbrains-italic": ["jetbrains-italic", "italic"],
@@ -47,25 +48,25 @@ module.exports = {
           },
         },
         fadeIn: {
-          "0%" : {
-            "opacity" : 0,
+          "0%": {
+            opacity: 0,
           },
-          "75%" :{
-            "opacity" : 0.75,
+          "75%": {
+            opacity: 0.75,
           },
           "100%": {
-            "opacity" : 1,
+            opacity: 1,
           },
         },
-        fadeOut:{
-          "0%" : {
-            "opacity" : 1,
+        fadeOut: {
+          "0%": {
+            opacity: 1,
           },
-          "75%" :{
-            "opacity" : 0.25,
+          "75%": {
+            opacity: 0.25,
           },
           "100%": {
-            "opacity" : 0,
+            opacity: 0,
           },
         },
         starshine: {

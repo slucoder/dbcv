@@ -20,15 +20,13 @@ const navTopics = projectsSkills.map((ps) => {
   return ps.title;
 });
 const LazySusan = ({
-  clickIncrementer,
-  handleContactClick,
-  hoverIncrementer,
+  props
 }) => {
   const [playBikeBell] = useSound(bikebell);
   const [playSoftBikeBell] = useSound(softbikebell);
   const [currentTopicIndex, setCurrentTopicIndex] = useState(0);
   const navPanel = (
-    <div className="thumbsLinks" id="nav-images" title="Jump to Topic">
+    <div className="thumbsLinks" id="nav-images" alt="Jump to Topic">
       {navTopics.map((navtop, i) => (
         <div
           id={`thumb-${i}`}
@@ -36,7 +34,7 @@ const LazySusan = ({
           key={navtop}
           onClick={() => handleCurrentTopicChange(i)}
           onClickCapture={playSoftBikeBell}
-          onMouseEnter={hoverIncrementer}
+          onMouseEnter={() => {props.hoverIncrementer()}}
         >
           {navtop}
         </div>
@@ -45,7 +43,7 @@ const LazySusan = ({
   );
   function handleCurrentTopicChange(index) {
     setCurrentTopicIndex(index);
-    clickIncrementer();
+    props.clickIncrementer();
   }
   const lazySusanFrames = projectsSkills.map((topic, j) => (
     <div
@@ -65,9 +63,7 @@ const LazySusan = ({
         key={j}
         props={{
           heading: topic.title,
-          hoverIncrementer: hoverIncrementer,
-          handleContactClick: handleContactClick,
-          clickIncrementer: clickIncrementer,
+          hoverIncrementer: props.hoverIncrementer,
         }}
       />
     </div>
@@ -90,13 +86,14 @@ const LazySusan = ({
           hasNext && (
             <div
               aria-label="Next Slide"
-              title="Next Slide"
+              className="hovertip"
+              alt="Next Slide"
               style={nextArrowPosition}
               id="next-arrow"
               onClickCapture={playBikeBell}
               onClick={clickHandler}
               onMouseEnter={() => {
-                hoverIncrementer();
+                props.hoverIncrementer();
                 hoverCursor(true, "next-arrow");
               }}
               onMouseOut={() => hoverCursor(false, "next-arrow")}
@@ -108,14 +105,15 @@ const LazySusan = ({
         renderArrowPrev={(clickHandler, hasPrev) =>
           hasPrev && (
             <div
+              className="hovertip"
               aria-label="Previous Slide"
-              title="Previous Slide"
+              alt="Previous Slide"
               style={prevArrowPosition}
               id="prev-arrow"
               onClickCapture={playSoftBikeBell}
               onClick={clickHandler}
               onMouseEnter={() => {
-                hoverIncrementer();
+                props.hoverIncrementer();
                 hoverCursor(true, "prev-arrow");
               }}
               onMouseOut={() => hoverCursor(false, "prev-arrow")}

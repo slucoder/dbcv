@@ -1,38 +1,20 @@
-import { customPointer } from "../util.tsx";
-const Star = ({ props }) => {
-  const contactFormMouseHover = () => {
-    props.hoverIncrementer();
-    document.body.style.cursor = customPointer;
+import { starPointer } from "../util.tsx";
+const Star = ( {props} ) => {
+  const starMouseOver = () => {
+    document.body.style.cursor = starPointer;
   };
-  const contactFormMouseLeave = () => {
+  const starMouseOut = () => {
     document.body.style.cursor = "revert";
-  };
-  const contactFormClick = () => {
-    document.body.style.cursor = "revert";
-    props.handleContactClick();
-  };
-  const gratis = () => {
-    return true;
   };
   return (
     <div
       id={`star-wrapper-${props.subject}`}
       className="star"
       key={`tooltip-${props.subject}`}
-      onMouseEnter={
-        props.subject !== "Contact"
-          ? props.hoverIncrementer
-          : contactFormMouseHover
-      }
-      onMouseLeave={
-        props.subject !== "Contact" ? gratis : contactFormMouseLeave
-      }
-      onClickCapture={
-        props.subject !== "Contact" ? gratis : props.clickIncrementer
-      }
-      onClick={props.subject !== "Contact" ? gratis : contactFormClick}
+      onMouseOver={starMouseOver}
+      onMouseOut={starMouseOut}
       aria-label={props.subject}
-      title={props.subject}
+      alt={props.subject}
     >
       <div className="blurbSubject">{props.subject}</div>
       <div aria-label={props.experience} className="blurbExperience">
@@ -40,9 +22,10 @@ const Star = ({ props }) => {
       </div>
       <div
         key={props.subject}
+        aria-label={`${props.subject} Details`}
         id={`corona-wrapper-${props.subject}`}
-        title={`${props.subject} Details`}
-        style={{ top: "11vh", left: "0.25vw" }}
+        alt={`${props.subject}`}
+        style={{ top: "11vh", left: "0.25vw", zIndex: 10 }}
         className={props.isRev ? "corona_rev" : "corona"}
       >
         <div className="ray ray1"></div>

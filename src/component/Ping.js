@@ -2,7 +2,6 @@ import emailjs from "emailjs-com";
 import {
   customPointer,
   dbHero,
-  inputFocusBackColor,
   pingCancelStyle,
   pingSubmitStyle,
   pingPadding,
@@ -10,7 +9,7 @@ import {
 } from "../util.tsx";
 import { useRef, useState } from "react";
 import useSound from "use-sound";
-import sendMailSong from "../audio/also-sprach-zarathustra.wav";
+import sendMessageDitty from "../audio/also-sprach-zarathustra.wav";
 
 const Ping = ({
   onCancelClick,
@@ -20,12 +19,15 @@ const Ping = ({
   clickTotal,
   hoverTotal,
 }) => {
-  const refPingForm = useRef();
+  const refPingForm = useRef(null);
+  const refVisitorNameInput = useRef(null);
+  const refVisitorEmailInput = useRef(null);
+  const refVisitorCommentInput = useRef(null);
   const [messageStatus, setMessageStatus] = useState("initial");
-  const [errMessage, setErrMessage] = useState("");
+  const [errMessage, setErrMessage] = useState(null);
   const [pointerCursor, setPointerCursor] = useState(false);
-  const [alias, setAlias] = useState(visitor);
-  const [playSendMailSong] = useSound(sendMailSong);
+  const [visitorChosenName, setVisitorChosenName] = useState(visitor);
+  const [playSendMailSong, {stop}] = useSound(sendMessageDitty);
   const handleMessaging = (result) => {
     setMessageStatus(result);
   };
@@ -39,30 +41,33 @@ const Ping = ({
       }
     }
   };
+  
+function bleach(str){
+  const badChars = /[^\\<>/{}]/gi;
+  const retVal = str.replace(badChars, " ").substring(0, 1000);
+  return retVal;  
+};
+
   const handleClose = () => {
     clickIncrementer();
     onButtonHover(false);
   };
-  function handleFocus(e) {
-    const ctl = document.getElementById(e.target.id);
-    ctl.style.backgroundColor = inputFocusBackColor;
-  }
-  function handleLostFocus(e) {
-    const ctl = document.getElementById(e.target.id);
-    ctl.style.backgroundColor = "revert";
-    if (e.target.id === "ping-name") {
-      const _visitorName =
-        document.getElementById("ping-name").value ?? visitor;
-      setAlias(_visitorName);
-      handleVisitorName(_visitorName);
+
+  const postVisitorName = () => {
+    const newVisitorName = refVisitorNameInput.current.value.trim();    
+    if (newVisitorName && newVisitorName.length > 1) {
+      const alias = newVisitorName.split(' ')[0].substring(0, 10);
+      setVisitorChosenName(alias);
+      handleVisitorName(alias);
     }
-  }
-  function transmit(e) {
+  };
+
+  const pbr = { playbackRate : 1.15 };
+
+  function visitorMessageToHost(e) {
     e.preventDefault();
-    playSendMailSong();
     setPointerCursor(false);
-    const _visitorName = document.getElementById("ping-name").value ?? visitor;
-    handleVisitorName(_visitorName);
+    postVisitorName();
     setMessageStatus("sending");
     emailjs
       .sendForm(
@@ -80,8 +85,16 @@ const Ping = ({
         setErrMessage(err);
         handleMessaging("fail");
       });
-  }
+  };
 
+  function recycleFocus(e) {
+    if (e.key === "Tab") {
+      e.preventDefault();
+      refVisitorNameInput.current.focus();
+    } else {
+      return true;
+    }
+  }
   return (
     <>
       <div>
@@ -91,13 +104,14 @@ const Ping = ({
               action=""
               ref={refPingForm}
               key="ping-form"
-              onSubmit={transmit}
+              onSubmitCapture={() => { playSendMailSong(pbr)} }
+              onSubmit={visitorMessageToHost}
               id="ping-form"
               aria-label="Contact"
               name="ping-form"
             >
               <fieldset disabled={messageStatus === "sending"}>
-                <table className="table-auto" id="ping-table">
+                <table className="table-auto" id="contact-table">
                   <thead>
                     <tr style={pingPadding}>
                       <th
@@ -141,8 +155,7 @@ const Ping = ({
                       <td style={pingPadding}>
                         <input
                           tabIndex={1}
-                          onFocus={(e) => handleFocus(e)}
-                          onBlur={(e) => handleLostFocus(e)}
+                          ref={refVisitorNameInput}
                           type="text"
                           placeholder="Your Name"
                           name="name"
@@ -153,6 +166,7 @@ const Ping = ({
                           maxLength={100}
                           required
                           autoFocus
+                          onBlur={postVisitorName}
                         />
                       </td>
                     </tr>
@@ -176,10 +190,9 @@ const Ping = ({
                         <input
                           id="ping-email"
                           tabIndex={2}
+                          ref={refVisitorEmailInput}
                           aria-labelledby="ping-email-label"
                           type="email"
-                          onFocus={(e) => handleFocus(e)}
-                          onBlur={(e) => handleLostFocus(e)}
                           height="5rem"
                           width="20rem"
                           name="email"
@@ -209,8 +222,7 @@ const Ping = ({
                       <td>
                         <input
                           tabIndex={3}
-                          onFocus={(e) => handleFocus(e)}
-                          onBlur={(e) => handleLostFocus(e)}
+                          ref={refVisitorCommentInput}
                           aria-labelledby="ping-comments-label"
                           id="ping-comments"
                           type="text"
@@ -226,7 +238,7 @@ const Ping = ({
                             display: "block",
                             bottom: "0",
                           }}
-                          required={true}
+                          required={true}                          
                         />
                       </td>
                     </tr>
@@ -239,7 +251,7 @@ const Ping = ({
                           <button
                             className="send"
                             tabIndex={4}
-                            title="Send"
+                            alt="Send"
                             style={pingSubmitStyle}
                             type="submit"
                             name="submit"
@@ -255,13 +267,14 @@ const Ping = ({
                         <div>
                           <div
                             tabIndex={5}
-                            title="Cancel"
+                            alt="Cancel"
                             name="cancel"
                             style={pingCancelStyle}
                             id="ping-cancel-button"
                             aria-label="Cancel"
                             onMouseEnter={() => onButtonHover(true)}
                             onMouseLeave={() => onButtonHover(false)}
+                            onKeyDownCapture={(e) => recycleFocus(e)}
                             onClickCapture={handleClose}
                             onClick={onCancelClick}
                           >
@@ -317,7 +330,7 @@ const Ping = ({
           <div aria-label="Your message is sent" style={pingPadding}>
             <br />
             <h2>¡Your message is sent!</h2>
-            <h2>¡Thank you, {alias}!</h2>
+            <h2>¡Thank you, {visitorChosenName}!</h2>
             <br />
             <h3>¡Don Brown will respond in a timely manner!</h3>
           </div>
@@ -326,7 +339,7 @@ const Ping = ({
           <div aria-label="Message failed to send" style={pingPadding}>
             <div aria-label="Please try again later">
               <h2>
-                Unfortunately,&nbsp;{alias}
+                Unfortunately,&nbsp;{visitorChosenName}
                 !&nbsp;the&nbsp;message&nbsp;did&nbsp;not&nbsp;send!
               </h2>
               <h2>Please&nbsp;try&nbsp;again&nbsp;momentarily!</h2>
@@ -349,18 +362,20 @@ const Ping = ({
             ...pingCancelStyle,
           }}
           tabIndex={5}
-          title="Close"
+          alt="Close"
           name="close"
           id="ping-close-button"
           aria-label="Close Contact Form"
           onMouseEnter={() => onButtonHover(true)}
-          onMouseLeave={() => onButtonHover(false)}
-          onClickCapture={clickIncrementer}
+          onMouseLeave={() => {
+            onButtonHover(false);
+          }}
+          onClickCapture={() => { clickIncrementer(); stop(); }}
           onClick={onCancelClick}
         >
           <div
-            aria-label="Click to close form"
-            title="Click to close form"
+            aria-label="Click to Close the Contact Form"
+            alt="Click to Close the Contact Form"
             style={{ marginTop: "1.75rem", marginLeft: "0.75rem" }}
           >
             Close

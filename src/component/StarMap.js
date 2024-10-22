@@ -1,56 +1,77 @@
+import { useState } from "react";
 import { projectsSkills } from "../content.js";
 import Star from "./Star.js";
-import { getViewportPosition, blurbStyle} from "../util.tsx";
-import { useState } from "react";
+import {
+  getViewportPosition,
+  blurbStyle,
+  blurbLeftPosVals,
+  blurbTopPosVals,
+} from "../util.tsx";
 
-const StarMap = ( {props} ) => {
+const StarMap = ({ props }) => {
   const [blurbShow, setBlurbShow] = useState(false);
   const [blurbContent, setBlurbContent] = useState({});
-  const [blurbPosition, setBlurbPosition] = useState({top: "12rem", left: "25rem"})
-  const blurbPositionStyle = {    
+  const [blurbTop, setBlurbTop] = useState("");
+  const [blurbLeft, setBlurbLeft] = useState("");
+  const topBaseline = 6;
+  const leftBaseline = 30;
+
+  function handleBlurbPosition(index, motifCount) {
+    const topPosition = index < 3 ? blurbTopPosVals[0] : blurbTopPosVals[1];
+    let leftPosition = "";
+    if (index < 3) {
+      leftPosition = blurbLeftPosVals[index];
+    } else {
+      switch (motifCount) {
+        default:
+        case 1:
+        case 2:
+        case 3:
+          break;
+        case 4:
+          if (index === 3) {
+            leftPosition = blurbLeftPosVals[0];
+          }
+          break;
+        case 5:
+          if (index === 3) {
+            leftPosition = blurbLeftPosVals[1];
+          }
+          if (index === 4) {
+            leftPosition = blurbLeftPosVals[0];
+          }
+          break;
+        case 6:
+          if (index === 3) {
+            leftPosition = blurbLeftPosVals[2];
+          }
+          if (index === 4) {
+            leftPosition = blurbLeftPosVals[1];
+          }
+          if (index === 5) {
+            leftPosition = blurbLeftPosVals[0];
+          }
+          break;
+      }
+    }
+    setBlurbTop(getViewportPosition(topPosition, false));
+    setBlurbLeft(getViewportPosition(leftPosition, true));
+    // document.body.style.cursor = starPointer;
+  }
+
+  const blurbPosition = {
+    top: blurbTop,
+    left: blurbLeft,
+  };
+  const blurbPositionStyle = {
     ...blurbPosition,
     ...blurbStyle,
-  }
+  };
   const header = projectsSkills.filter((s) => s.title === props.heading);
   const motifs = Array.from(header[0]["topics"]);
-  const topBaseline = 6,
-    leftBaseline = 30;
-  const currentStarId = (motifName, motifIndex) =>{
-    return `star-${motifName + motifIndex.toString()}`
-  };
-  function handleBlurbPosition(index, synopsisLength){
-    const pos = {};
-    const posFirstRow = getViewportPosition(topBaseline * 4, false);
-    const posSecondRow = getViewportPosition(topBaseline * ((synopsisLength / 100 >> 0) < 5 ? 4: 2), false);    
-    switch(index){
-      case 0:
-        pos.top = posFirstRow;
-        pos.left = getViewportPosition(5, true);
-        break;
-      case 1:
-        pos.top = posFirstRow;
-        pos.left = getViewportPosition((leftBaseline + 2), true);
-        break;
-      case 2:
-        pos.top = posFirstRow;
-        pos.left = getViewportPosition((leftBaseline * 2), true);
-        break;
-      case 3:
-        pos.top = posSecondRow;
-        pos.left = getViewportPosition(leftBaseline * (motifs.length - 1 - index) + 10, true);
-        break;
-      case 4:
-        pos.top = posSecondRow;
-        pos.left = getViewportPosition(leftBaseline * (motifs.length - 1 - index) + 5, true);
-        break;
-      case 5:
-        pos.top = posSecondRow;
-        pos.left = getViewportPosition(leftBaseline * (motifs.length - 1 - index), true);
-        break;
-      default:
-        break;
-    }
-    setBlurbPosition(pos);
+
+  const currentStarId = (motifName, motifIndex) => {
+    return `star-${motifName + motifIndex.toString()}`;
   };
 
   const stars = motifs.map((motif, i) => (
@@ -74,24 +95,26 @@ const StarMap = ( {props} ) => {
         width: "13rem",
         zIndex: 10,
         backgroundColor: "transparent",
-      }}      
-      onMouseOver={() => {
-        handleBlurbPosition(i, motif.synopsis.length);
+      }}
+      onMouseEnter={() => {
+        handleBlurbPosition(i, motifs.length);
         setBlurbShow(true);
         setBlurbContent({
           heading: motif.name,
           history: motif.experience,
           verbiage: motif.synopsis,
         });
+        props.hoverIncrementer();
       }}
-      onMouseOut={() => {
+      onMouseLeave={() => {
         setBlurbShow(false);
+        document.body.style.cursor = "revert";
         setBlurbContent({
           heading: "",
           history: "",
           verbiage: "",
         });
-      }}      
+      }}
     >
       <Star
         key={i}
@@ -100,9 +123,6 @@ const StarMap = ( {props} ) => {
           subject: motif.name,
           experience: motif.experience,
           isRev: (i + 1) % 2 > 0 ? true : false,
-          hoverIncrementer: props.hoverIncrementer,
-          handleContactClick: props.handleContactClick,
-          clickIncrementer: props.clickIncrementer,
         }}
       />
     </div>
@@ -112,9 +132,15 @@ const StarMap = ( {props} ) => {
     <>
       {blurbShow && (
         <div id="starmap-blurb" className="flex-1" style={blurbPositionStyle}>
-          <h4 id="blurbHeading" className="text-center w-auto">{blurbContent.heading}</h4>
-          <h5 id="blurbHistory" className="text-center w-auto">{blurbContent.history}</h5>
-          <h6 id="blurbVerbiage">{blurbContent.verbiage}</h6>
+          <h4 id="blurb-heading" className="text-center w-auto">
+            {blurbContent.heading}
+          </h4>
+          <h5 id="blurb-history" className="text-center w-auto">
+            {blurbContent.history}
+          </h5>
+          <h6 id="blurb-verbiage">
+            <p>{blurbContent.verbiage}</p>
+          </h6>
         </div>
       )}
       <div id="star-box">{stars}</div>

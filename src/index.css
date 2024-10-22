@@ -35,22 +35,31 @@
   }
 
   h4 {
-    @apply text-center text-lg text-slate-700 bg-sky-300 rounded-xl w-[50%] ml-[25%];
+    @apply text-center text-lg text-white bg-gradient-to-r from-cyan-600 to-blue-200 rounded-xl w-[50%] ml-[25%];
   }
 
   h5 {
-    @apply text-left text-white bg-emerald-800 rounded-sm w-[50%] ml-[25%];
+    @apply text-right text-white bg-gradient-to-l from-emerald-600 to-green-200 rounded-xl w-[50%] ml-[25%];
   }
 
   h6 {
-    @apply text-sm text-white bg-transparent;
+    @apply text-lg text-black bg-transparent;
   }
+
 }
 
 @layer components {}
 
-select {
-  @apply text-pretty font-bold text-purple-800 bg-emerald-100 border-2 border-emerald-700;
+input[type="text"]:focus {
+  @apply bg-amber-200;
+}
+
+input[type="email"]:focus {
+  @apply bg-amber-200;
+}
+
+div.hovertip[alt]:hover:after {
+  @apply content-[attr(alt)] absolute -top-[75%] left-[25%] text-sm text-blue-800 bg-sky-100 rounded-xl animate-none p-2 opacity-75;
 }
 
 button.send {
@@ -69,24 +78,24 @@ button.send {
   @apply text-sky-600 dark:text-slate-300 font-bold;
 }
 
-div.contactLink {
-  @apply bg-transparent absolute mt-[21vh] ml-[20vw] pb-2 text-emerald-100 text-pretty hover:bg-white hover:rounded-lg hover:text-black hover:font-bold text-center min-w-10 hover:cursor-pointer z-50;
+div.contactLinkTop {
+  @apply bg-transparent absolute mt-[9vh] ml-[40vw] pt-1 text-emerald-100 text-pretty hover:bg-white hover:rounded-lg hover:text-black hover:font-bold text-center min-w-10 hover:cursor-pointer z-50;
 }
 
 div.thumbsLinks {
-  @apply flex bg-transparent h-10 w-auto absolute mt-[12vh] ml-[30vw] border-2 border-sky-300 border-opacity-50 rounded-lg;
+  @apply flex bg-transparent h-10 w-auto absolute mt-[10vh] ml-[30vw] border-2 border-emerald-200 border-opacity-25 rounded-lg;
 }
 
 div.thumb {
-  @apply text-base float-left p-2 text-sky-200 text-pretty hover:bg-white hover:text-blue-700 hover:border-blue-700 hover:border-2 hover:font-bold text-center hover:cursor-pointer hover:rounded-lg hover:opacity-70 z-50;
+  @apply text-base float-left p-2 text-sky-200 text-pretty hover:bg-white hover:text-blue-700 hover:font-bold text-center hover:cursor-pointer hover:rounded-lg hover:opacity-70 z-50;
 }
 
 div.userStats {
-  @apply bg-transparent pb-4 absolute mt-[21vh] ml-[50vw] text-sky-100 w-[35vw] z-50;
+  @apply bg-transparent text-lg pb-4 absolute mt-[19vh] ml-[33vw] text-sky-50 w-[35vw] z-50;
 }
 
 span.visitorName {
-  @apply text-xl font-extralight font-jetbrains-italic;
+  @apply text-xl font-jetbrains-italic;
 }
 
 div.viewOptions {
@@ -106,7 +115,7 @@ div.blackhole {
 }
 
 div.lazySusanWrapper {
-  @apply w-11/12 h-[65vh] opacity-40 flex-1 bg-starfield bg-repeat animate-bgshift overflow-hidden border-slate-100 border-2 rounded-lg top-6;
+  @apply w-11/12 h-[61vh] opacity-40 flex-1 bg-starfield bg-repeat animate-bgshift overflow-hidden border-slate-100 border-2 rounded-lg top-6;
 }
 
 div.lazySusanFrame {
@@ -114,11 +123,11 @@ div.lazySusanFrame {
 }
 
 div.blurbSubject {
-  @apply text-2xl text-sky-600 top-6 left-8 absolute text-pretty;
+  @apply text-xl text-sky-600 top-6 left-8 absolute text-left;
 }
 
 div.blurbExperience {
-  @apply text-2xl text-pretty text-slate-600 top-20 left-4 absolute;
+  @apply text-lg text-right text-slate-600 top-20 left-4 absolute;
 }
 
 div.star {
@@ -138,43 +147,43 @@ div.ray {
 }
 
 .ray1 {
-  @apply h-56 w-12 rotate-180 -top-44 left-4;
+  @apply z-10 h-56 w-12 rotate-180 -top-44 left-4;
 }
 
 .ray2 {
-  @apply h-36 w-6 rotate-[220deg] -top-24 left-20;
+  @apply z-10 h-36 w-6 rotate-[220deg] -top-24 left-20;
 }
 
 .ray3 {
-  @apply h-40 w-16 rotate-[250deg] -top-20 left-28;
+  @apply z-10 h-40 w-16 rotate-[250deg] -top-20 left-28;
 }
 
 .ray4 {
-  @apply h-36 w-7 rotate-[305deg] top-8 left-24;
+  @apply z-10 h-36 w-7 rotate-[305deg] top-8 left-24;
 }
 
 .ray5 {
-  @apply h-40 w-11 -rotate-[15deg] top-16 left-10;
+  @apply z-10 h-40 w-11 -rotate-[15deg] top-16 left-10;
 }
 
 .ray6 {
-  @apply h-28 w-16 rotate-[30deg] top-12 -left-10;
+  @apply z-10 h-28 w-16 rotate-[30deg] top-12 -left-10;
 }
 
 .ray7 {
-  @apply h-56 w-6 rotate-[70deg] -top-9 -left-10;
+  @apply z-10 h-56 w-6 rotate-[70deg] -top-9 -left-10;
 }
 
 .ray8 {
-  @apply h-40 w-20 rotate-[100deg] -top-11 -left-24;
+  @apply z-10 h-40 w-20 rotate-[100deg] -top-11 -left-24;
 }
 
 .ray9 {
-  @apply h-24 w-6 rotate-[120deg] -top-16 -left-14;
+  @apply z-10 h-24 w-6 rotate-[120deg] -top-16 -left-14;
 }
 
 .ray10 {
-  @apply h-56 w-10 rotate-[150deg] -top-48 -left-16;
+  @apply z-10 h-56 w-10 rotate-[150deg] -top-48 -left-16;
 }
 
 @layer utilities {}

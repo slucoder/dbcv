@@ -1,9 +1,10 @@
 import pointer from "./img/nav/pointer.png";
+import eightPointStar from "./img/flash/eight-point-star.png";
 const glyphSizer = 10.6;
-const typeInTextDelay = 8000; // ###
+const typeInTextDelay = 8500; 
 export const typeInTextStyle = {
-  top: "15vh",
-  left: "23vw",
+  top: "13vh",
+  left: "19vw",
   position: "absolute",
   color: "#ffffff",
   fontWeight: "bold",
@@ -11,9 +12,9 @@ export const typeInTextStyle = {
   zIndex: 5,
 };
 export const dbHero = "Don Brown Software Engineer";
-export const principalBouncingDelay = 100;
-export const principalExitDelay = 50000; // ###
-export const principalEntranceDelay = 7000; //###
+export const principalBouncingDelay = 150;
+export const principalExitDelay = 55000; 
+export const principalEntranceDelay = 9000;
 export const viewportBuffer = 13;
 export const tooltipStyle = {
   background: "transparent",
@@ -74,8 +75,8 @@ export const lazySusanVariants = {
     },
   },
 };
-export const altPrevious = "← Previous ←";
-export const altNext = "→ Next →";
+export const altPrevious = "Previous Frame";
+export const altNext = "Next Frame";
 export const shuffle = (array: string[]) => {
   for (let ix = array.length - 1; ix > 0; ix--) {
     const j = Math.floor(Math.random() * (ix + 1));
@@ -120,22 +121,23 @@ export const blurbVariants = {
 };
 export const blurbStyle = {
   position: "absolute",
+  color: "black",
   minHeight: "10rem",
   minWidth: "20rem",
-  maxHeight: "35rem",
+  maxHeight: "50rem",
   maxWidth: "35rem",
   padding: "1rem",
   opacity: 0.99,
   zIndex: 20,
-  background: "linear-gradient(135deg, #001c40 40%, #43699b)",
-  border: "1px solid #ffffff",
-  overflow: "hidden",
+  background: "linear-gradient(135deg, #ffffff 40%, #99d6ff)",
+  border: "5px solid black",
+  overflow: "auto",
   textWrap: "stable",
   borderRadius: "30%",
 };
 export const pingStyle = {
   border: "solid #ffffff",
-  background: "content-box radial-gradient(#99ffeb, #009933)",
+  background: "content-box radial-gradient(#006600, #5cd65c)",
   color: "black",
   fontFamily: "Cascadia Code",
   top: "25vh",
@@ -190,8 +192,9 @@ export const nextArrowPosition = {
   opacity: 0.75,
   zIndex: "1",
 };
-export const inputFocusBackColor = "#ffffe6";
+
 export const customPointer = "url('" + pointer + "'), pointer";
+export const starPointer = "url('" + eightPointStar + "'), pointer";
 export const visitor = "Guest";
 export const sparkler1Variants = {
   hidden: {
@@ -272,9 +275,9 @@ export const principalEscapeVariants = {
     opacity: 1,
     x: "-60vw",
     y: "+10vh",
-    rotate: 44,
+    rotate: 46,
     transition: {
-      duration: 5.5,
+      duration: 5.25,
       repeat: 0,
       type: "anticipate",
       ease: "easeInOut",
@@ -383,7 +386,12 @@ export const containerVariants = {
   },
 };
 export const firstInitalsAnimationOptions = ["spinning", "dancing", "outro"];
-export const secondInitalsAnimationOptions = ["vibrating", "spinning", "dancing", "outro"];
+export const secondInitalsAnimationOptions = [
+  "shimmy",
+  "spinning",
+  "dancing",
+  "outro",
+];
 export const firstInitialVariants = {
   hidden: (custom) => ({
     opacity: 0.01,
@@ -505,6 +513,15 @@ export const secondInitialVariants = {
       delay: 0,
     },
   },
+  shimmy: {
+    scale: [1, 2, 2, 1, 1],
+    rotate: [0, 0, 270, 270, 0],
+    borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+    transition: {
+      duration: 2,
+      repeat: 3,
+    },
+  },
   vibrating: (custom) => ({
     x: [
       `calc(${custom.slide} + 3%)`,
@@ -522,37 +539,37 @@ export const secondInitialVariants = {
     },
   }),
 };
-function getRando(q: number) {
-  return Math.floor(Math.random() * q) + 1;
+export function getRandomInteger(maxVal: number) {
+  return Math.floor(Math.random() * maxVal);
 }
 function getRandomEastWest() {
   return Math.random() >= 0.5 ? -1 : 1;
 }
-function getRandomDecimal(){
+function getRandomDecimal() {
   const rando = Math.random();
-  return (rando === 0) ? 0.1 : rando;
-};
+  return rando === 0 ? 0.1 : rando;
+}
 const randomTwirlVariants = () => {
-  const rando = getRando(2);
-  const x = getRando(4);
-  const y = getRando(4);
+  const rando = getRandomInteger(3) + 1;
+  const x = getRandomInteger(5) + 1;
+  const y = getRandomInteger(5) + 1;
   const xDir = getRandomEastWest();
   const yDir = getRandomEastWest();
-  const randoTwirls = {
+  const randomTwirls = {
     rotateX: 360 * x * xDir,
     rotateY: 360 * y * yDir,
     transition: {
-      duration: (rando * 3) + yDir,
+      duration: rando * 3 + yDir,
       ease: xDir > 0 ? "circInOut" : "backInOut",
     },
   };
-  return randoTwirls;
+  return randomTwirls;
 };
-const randomBounceVariants = () =>{
-  const rep = getRando(4);
+const randomBounceVariants = () => {
+  const rep = getRandomInteger(4) + 1;
   const randoScale = getRandomDecimal();
   const dur = getRandomDecimal();
-  const bounceY = (getRando(2) + dur).toString() + "vh";
+  const bounceY = (getRandomInteger(2) + 1 + dur).toString() + "vh";
   const randoBounces = {
     y: ["-1vh", bounceY, "-1vh"],
     scale: [1, randoScale, 1],
@@ -608,10 +625,11 @@ export const abcVariants = {
   bouncing: randomBounceVariants,
   twirling: randomTwirlVariants,
 };
-
 export const typeInTextProps = {
   charInterval: "125",
   displayText: "Software Engineer",
   effectDelay: typeInTextDelay,
   textSize: "5rem",
 };
+export const blurbTopPosVals = [25, 10];
+export const blurbLeftPosVals = [11, 27, 45];

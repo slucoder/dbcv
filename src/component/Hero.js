@@ -26,14 +26,15 @@ import {
   containerVariants,
   firstInitalsAnimationOptions,
   firstInitialVariants,
-  secondInitialVariants,
-  principalEntranceDelay,
+  getRandomInteger,
   principalBouncingDelay,
+  principalEntranceDelay,
+  principalEscapeVariants,
   principalExitDelay,
+  secondInitialVariants,
   secondInitalsAnimationOptions,
   sparkler1Variants,
   sparkler2Variants,
-  principalEscapeVariants,
   principalReturnVariants,
 } from "../util.tsx";
 
@@ -135,9 +136,9 @@ function Hero({ props }) {
     runIntroSequence();
   }, [
     animateBraces,
-    animateFirstInitial,
     animateChars,
     animateContainer,
+    animateFirstInitial,
     animatePrincipalReturn,
     animatePrincipalEscape,
     animateSecondInitial,
@@ -151,15 +152,18 @@ function Hero({ props }) {
         ? 0
         : firstInitalsAnimationOptions.indexOf(firstInitialBehavior) + 1;
     return firstInitalsAnimationOptions[j];
-  }
+  };
   function getSecondInitialsAnimationOption() {
-    const j =
-      secondInitalsAnimationOptions.indexOf(secondInitialBehavior) + 1 >
-      secondInitalsAnimationOptions.length - 1
-        ? 0
-        : secondInitalsAnimationOptions.indexOf(secondInitialBehavior) + 1;
-    return secondInitalsAnimationOptions[j];
-  }
+    const j = getRandomInteger(secondInitalsAnimationOptions.length - 1);
+    if (secondInitialBehavior !== secondInitalsAnimationOptions[j]) {
+      return secondInitalsAnimationOptions[j];
+    } else {
+      return j + 1 < secondInitalsAnimationOptions.length
+        ? secondInitalsAnimationOptions[j + 1]
+        : secondInitalsAnimationOptions[j - 1];
+    }
+  };
+  
   const activateLogoAnimation = () => {
     animateChars.start(logoBehavior);
     animateFirstInitial.start(firstInitialBehavior);
@@ -171,7 +175,6 @@ function Hero({ props }) {
 
   const clickFirstInitial = () => {
     animateFirstInitial.start(firstInitialBehavior);
-
     setFirstInitialBehavior(
       firstInitialBehavior === "dancing" ? "outro" : "dancing"
     );
@@ -179,10 +182,7 @@ function Hero({ props }) {
 
   const clickSecondInitial = () => {
     animateSecondInitial.start(secondInitialBehavior);
-
-    setSecondInitialBehavior(
-      secondInitialBehavior === "vibrating" ? "outro" : "vibrating"
-    );
+    setSecondInitialBehavior(getSecondInitialsAnimationOption());
   };
 
   const easterEggHover = () => {
@@ -259,7 +259,7 @@ function Hero({ props }) {
           style={fixedStyle}
           className="initial"
           whileHover={() => {
-            easterEggHover();            
+            easterEggHover();
           }}
           onHoverStart={props.handleHover}
           onHoverEnd={() => {

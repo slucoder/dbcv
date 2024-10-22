@@ -30,16 +30,16 @@ function App() {
   const handleVisitorName = (visitor) => {
     setVisitorName(visitor);
   };
-  const handleHover = () =>{
+  const handleHover = () => {
     tallyHovers(hoverCount + 1);
   };
-  const handleClick = () =>{
+  const handleClick = () => {
     tallyClicks(clickCount + 1);
   };
   return (
     <>
       <div className="blackhole"></div>
-      <div        
+      <div
         data-tooltip-id="tooltip-hero"
         data-tooltip-content="Hunt for Eggs!"
         data-tooltip-place="bottom-start"
@@ -47,7 +47,11 @@ function App() {
         data-tooltip-float={false}
         aria-label={`${dbHero} Banner`}
       >
-        <Hero key={visitor} props={{handleClick:handleClick, handleHover:handleHover,}}  className="z-30" />
+        <Hero
+          key={visitor}
+          props={{ handleClick: handleClick, handleHover: handleHover }}
+          className="z-30"
+        />
         <Tooltip id="tooltip-hero" style={tooltipStyle}></Tooltip>
       </div>
       <div aria-label={`${dbHero} Animated Title Logo`} style={typeInTextStyle}>
@@ -58,26 +62,28 @@ function App() {
         onMouseOverCapture={tallyHovers}
         onClickCapture={tallyClicks}
         onClick={handleContactClick}
-        title="Contact"
-        id="contact-link"
-        className="contactLink"
+        alt="Contact"
+        id="contact-link-top"
+        className="contactLinkTop"
       >
-        ►&nbsp;Contact Don Brown&nbsp;◄
+        Contact Don Brown
       </div>
       <div
-        title={`${visitorName} Statistics`}
+        alt={`${visitorName} Statistics`}
         aria-label={`${visitorName} Statistics`}
         key={`${visitorName}`}
         id="user-statistics"
         className="userStats font-TNR"
       >
         <span id="stats-span">
-        <span className="visitorName">{visitorName}</span>&nbsp;Clicks:{clickCount}&nbsp;Hovers:{hoverCount}&nbsp;Messages:&nbsp;{messageCount}
+          <span className="visitorName">{visitorName}</span>&nbsp;Clicks:
+          {clickCount}&nbsp;Hovers:{hoverCount}&nbsp;Messages:&nbsp;
+          {messageCount}
         </span>
       </div>
       <div id="contact-form-display">
         {contactFormDisplay && (
-          <div style={pingStyle} title="Contact">
+          <div style={pingStyle} alt="Contact">
             <Ping
               id="ping-form"
               onCancelClick={handleContactClick}
@@ -97,10 +103,9 @@ function App() {
           variants={lazySusanVariants}
           animate="visible"
         >
-          <LazySusan
-            hoverIncrementer={tallyHovers}
-            handleContactClick={handleContactClick}
-            clickIncrementer={tallyClicks}
+          <LazySusan props={{hoverIncrementer:handleHover,
+            clickIncrementer:tallyClicks}}
+            
           />
         </motion.div>
       </div>
