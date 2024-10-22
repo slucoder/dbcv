@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/dbcv/static/css/main.fe50e37d.css",
-    "main.js": "/dbcv/static/js/main.77c20f3c.js",
+    "main.css": "/dbcv/static/css/main.7863fbcd.css",
+    "main.js": "/dbcv/static/js/main.75823f52.js",
     "static/js/885.05a14e96.chunk.js": "/dbcv/static/js/885.05a14e96.chunk.js",
     "static/js/453.be42175e.chunk.js": "/dbcv/static/js/453.be42175e.chunk.js",
     "static/media/also-sprach-zarathustra.wav": "/dbcv/static/media/also-sprach-zarathustra.a647ae30a9c8a2dd303b.wav",
-    "static/media/starfield.png": "/dbcv/static/media/starfield.8ed27e466035058d40a5.png",
+    "static/media/starfield.png": "/dbcv/static/media/starfield.f3a0002808f841af1e2a.png",
     "static/media/gong.wav": "/dbcv/static/media/gong.148aa42641ae3731b6a1.wav",
     "static/media/principal-escape.png": "/dbcv/static/media/principal-escape.bd34732fbcf78d335c17.png",
     "static/media/blackhole.png": "/dbcv/static/media/blackhole.d09ee1af07374bc3b93c.png",
@@ -26,13 +26,13 @@
     "static/media/capO.png": "/dbcv/static/media/capO.17acf6ca0c01f7a39fd4.png",
     "static/media/capB.png": "/dbcv/static/media/capB.3d68e9325ca9b5d91d12.png",
     "index.html": "/dbcv/index.html",
-    "main.fe50e37d.css.map": "/dbcv/static/css/main.fe50e37d.css.map",
-    "main.77c20f3c.js.map": "/dbcv/static/js/main.77c20f3c.js.map",
+    "main.7863fbcd.css.map": "/dbcv/static/css/main.7863fbcd.css.map",
+    "main.75823f52.js.map": "/dbcv/static/js/main.75823f52.js.map",
     "885.05a14e96.chunk.js.map": "/dbcv/static/js/885.05a14e96.chunk.js.map",
     "453.be42175e.chunk.js.map": "/dbcv/static/js/453.be42175e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe50e37d.css",
-    "static/js/main.77c20f3c.js"
+    "static/css/main.7863fbcd.css",
+    "static/js/main.75823f52.js"
   ]
 }
