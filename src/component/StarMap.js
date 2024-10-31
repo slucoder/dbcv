@@ -56,7 +56,6 @@ const StarMap = ({ props }) => {
     }
     setBlurbTop(getViewportPosition(topPosition, false));
     setBlurbLeft(getViewportPosition(leftPosition, true));
-    // document.body.style.cursor = starPointer;
   }
 
   const blurbPosition = {
@@ -104,7 +103,7 @@ const StarMap = ({ props }) => {
           history: motif.experience,
           verbiage: motif.synopsis,
         });
-        props.hoverIncrementer();
+        props.hoverIncrementor();
       }}
       onMouseLeave={() => {
         setBlurbShow(false);

@@ -13,8 +13,8 @@ import sendMessageDitty from "../audio/also-sprach-zarathustra.wav";
 
 const Ping = ({
   onCancelClick,
-  clickIncrementer,
-  messageIncrementer,
+  clickIncrementor,
+  messageIncrementor,
   handleVisitorName,
   clickTotal,
   hoverTotal,
@@ -41,15 +41,9 @@ const Ping = ({
       }
     }
   };
-  
-function bleach(str){
-  const badChars = /[^\\<>/{}]/gi;
-  const retVal = str.replace(badChars, " ").substring(0, 1000);
-  return retVal;  
-};
 
   const handleClose = () => {
-    clickIncrementer();
+    clickIncrementor();
     onButtonHover(false);
   };
 
@@ -78,7 +72,7 @@ function bleach(str){
       )
       .then(() => {
         setErrMessage("");
-        messageIncrementer();
+        messageIncrementor();
         handleMessaging("sent");
       })
       .catch((err) => {
@@ -257,7 +251,7 @@ function bleach(str){
                             name="submit"
                             id="ping-submit-button"
                             aria-label="Send"
-                            onClickCapture={clickIncrementer}
+                            onClickCapture={clickIncrementor}
                           >
                             Send
                           </button>
@@ -370,7 +364,7 @@ function bleach(str){
           onMouseLeave={() => {
             onButtonHover(false);
           }}
-          onClickCapture={() => { clickIncrementer(); stop(); }}
+          onClickCapture={() => { clickIncrementor(); stop(); }}
           onClick={onCancelClick}
         >
           <div

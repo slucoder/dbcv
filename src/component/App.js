@@ -38,7 +38,7 @@ function App() {
   };
   return (
     <>
-      <div className="blackhole"></div>
+      <div className="black-hole"></div>
       <div
         data-tooltip-id="tooltip-hero"
         data-tooltip-content="Hunt for Eggs!"
@@ -87,8 +87,8 @@ function App() {
             <Ping
               id="ping-form"
               onCancelClick={handleContactClick}
-              clickIncrementer={tallyClicks}
-              messageIncrementer={tallyMessages}
+              clickIncrementor={tallyClicks}
+              messageIncrementor={tallyMessages}
               handleVisitorName={handleVisitorName}
               clickTotal={clickCount}
               hoverTotal={hoverCount}
@@ -103,8 +103,8 @@ function App() {
           variants={lazySusanVariants}
           animate="visible"
         >
-          <LazySusan props={{hoverIncrementer:handleHover,
-            clickIncrementer:tallyClicks}}
+          <LazySusan props={{hoverIncrementor:handleHover,
+            clickIncrementor:tallyClicks}}
             
           />
         </motion.div>

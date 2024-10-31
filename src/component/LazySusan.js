@@ -27,23 +27,23 @@ const LazySusan = ({
   const [currentTopicIndex, setCurrentTopicIndex] = useState(0);
   const navPanel = (
     <div className="thumbsLinks" id="nav-images" alt="Jump to Topic">
-      {navTopics.map((navtop, i) => (
+      {navTopics.map((navTop, i) => (
         <div
           id={`thumb-${i}`}
           className="thumb"
-          key={navtop}
+          key={navTop}
           onClick={() => handleCurrentTopicChange(i)}
           onClickCapture={playSoftBikeBell}
-          onMouseEnter={() => {props.hoverIncrementer()}}
+          onMouseEnter={() => {props.hoverIncrementor()}}
         >
-          {navtop}
+          {navTop}
         </div>
       ))}
     </div>
   );
   function handleCurrentTopicChange(index) {
     setCurrentTopicIndex(index);
-    props.clickIncrementer();
+    props.clickIncrementor();
   }
   const lazySusanFrames = projectsSkills.map((topic, j) => (
     <div
@@ -63,7 +63,7 @@ const LazySusan = ({
         key={j}
         props={{
           heading: topic.title,
-          hoverIncrementer: props.hoverIncrementer,
+          hoverIncrementor: props.hoverIncrementor,
         }}
       />
     </div>
@@ -93,7 +93,7 @@ const LazySusan = ({
               onClickCapture={playBikeBell}
               onClick={clickHandler}
               onMouseEnter={() => {
-                props.hoverIncrementer();
+                props.hoverIncrementor();
                 hoverCursor(true, "next-arrow");
               }}
               onMouseOut={() => hoverCursor(false, "next-arrow")}
@@ -113,7 +113,7 @@ const LazySusan = ({
               onClickCapture={playSoftBikeBell}
               onClick={clickHandler}
               onMouseEnter={() => {
-                props.hoverIncrementer();
+                props.hoverIncrementor();
                 hoverCursor(true, "prev-arrow");
               }}
               onMouseOut={() => hoverCursor(false, "prev-arrow")}

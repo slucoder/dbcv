@@ -102,7 +102,7 @@ div.viewOptions {
   @apply bg-transparent p-1 absolute mt-[20vh] ml-[26vw] text-purple-100 w-[30vw] z-50;
 }
 
-div.blackhole {
+div.black-hole {
   @apply m-5 h-[100vh] w-[100vw] opacity-80 bg-blackhole bg-[top_10vh_left_10vw] bg-no-repeat absolute;
 }
 

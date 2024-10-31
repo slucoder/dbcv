@@ -4,11 +4,11 @@ import { blurbId, blurbStyle, blurbVariants } from "../util.tsx";
 
 const Blurbomatic = ({ props }) => {
   const blurbAnimate = useAnimation();
-  const reffy = useRef(null);
+  const refBlurb = useRef(null);
 
   useEffect(() => {
 
-    const closer = reffy.current;
+    const closer = refBlurb.current;
 
     function closeBlurb() {
       blurbAnimate.start("collapse");            
@@ -36,7 +36,7 @@ const Blurbomatic = ({ props }) => {
     <>
       <motion.div
         variants={blurbVariants}
-        ref={reffy}
+        ref={refBlurb}
         key={props.blurbName}
         id={blurbId}
         animate={blurbAnimate}
