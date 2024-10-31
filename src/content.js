@@ -6,7 +6,7 @@ export const projectsSkills = [
         name: "Start Here",
         experience: "Navigating Site",        
         synopsis: 
-          "Hover the Shining Stars for more information. Peruse subjects using on-screen pointers at far left and far right. Each page contains up to six  Shining Stars loaded with information about that subject!",
+          "Hover the Twinkling Star kiosks for more information. Peruse subjects using on-screen pointers at far left and far right. Each page contains up to six  Twinkling Stars loaded with information about that subject!",
       },
       {
         name: "Contact Don Brown",
@@ -15,16 +15,16 @@ export const projectsSkills = [
           "Click 'Contact Don Brown' below the banner to send Don Brown a message!",
       },
       {
-        name: "Shining Stars",
-        experience: "Shining Stars",        
+        name: "Twinkling Stars",
+        experience: "Twinkling Stars",        
         synopsis:
-          "Shining Stars are information kiosks! Hover the Shining Stars to display information. Shining Stars are animated using simple Javascript with CSS.",
+          "Twinkling Stars are information kiosks! Hover over the Twinkling Stars! Twinkling Stars are animated using simple Javascript with CSS.",
       },
       {
         name: "About",
         experience: "About Don Brown",        
         synopsis:
-          "Don Brown: experienced Software Engineer developing solutions for retail, health care, business-to-business, non-profit and educational environments. Don Brown offers deep IT skills to best fit the business needs with the most scalable and efficient technology. Resumé upon request, please use my Contact Form!",
+          "Don Brown: experienced Software Engineer developing solutions for retail, health care, business-to-business, non-profit and educational environments. Don Brown offers deep IT skills to best fit the business needs with the most scalable and efficient technology. Resume upon request, please use the Contact Form!",
       },
     ],
   },
@@ -35,19 +35,19 @@ export const projectsSkills = [
         name: "Javascript",
         experience: "2006 - Present",        
         synopsis:
-          "Javascript was initially a robust client-side tool developers used for input validation and enhanced user experience. Development libraries then made Javascript a very handy tool for web APIs and asynchronous calls. Now Javascript drives the V8 Engine expanded developemnt environmnets such as Node.js. This portfolio website is created using Javascript architectures Node.js with React. All site animations are Javascript.",
+          "Development libraries make Javascript a very handy tool for web APIs and asynchronous calls. Now Javascript drives the V8 Engine expanded developemnt environmnets such as Node.js. This portfolio website is created using Javascript architectures Node.js with React and Framer-Motion.",
       },
       {
         name: "TypeScript (TSX)",
         experience: "2020 - Present",        
         synopsis:
-          "Typescript (TSX) brings strong, custom typing to Javascript's loose typing - putting regular Javascript on par with venerable dotNET's typing granularity. Writing and compiling with TSX prevents innumerable errors within the CID cycle. Prior to TSX the devlopers (I, we) were compelled to write custom scripts to type and validate objects, or risk unknown and often silect exceptions upon deployment.",
+          "Implementing Typescript (TSX) saved me from writing custom Javascript types myself! Writing and compiling with TSX prevents innumerable runtime errors from reaching the CID cycle. Prior to TSX the devlopers (I, we) were compelled to write custom scripts to type and validate objects, or risk unknown and often silect exceptions upon deployment.",
       },
       {
         name: "C#",
         experience: "2006 - Present",        
         synopsis:
-          "I have constructed several web solutions utilizing the functionality of C# dotNet. Ubiquitous script used for countless implementations. In learning C# I have also learned to comprehend similar scripts: Java, C+, Python and others.",
+          "I have constructed a wide variety solutions utilizing the functionality of C# and ASP.NET. C# is an ubiquitous script used for countless implementations. In learning C# I have also learned to comprehend similar scripts: Java, C+, Python and others.",
       },
       {
         name: "Python",
@@ -153,7 +153,7 @@ export const projectsSkills = [
         name: "Workday ERP Conversion",
         experience: "Workday ERP Conversion",
         synopsis:
-          "Custom finance software had until Fall 2023 to become security-compliant and Workday ERP capable. I oversaw the developent of this technology to replace legacy software for one department. We created secure, web-based technology which utilized existing Employer resources to successfully link staff with all necessary IT systems, including Employer Workday. New functionality added to the solution automated tme-consuming tasks that were previously done by hand and eye.",
+          "Finance softwares had until Fall 2023 to become security-compliant and Workday ERP capable. I oversaw the developent of this technology to replace legacy software for an internal department. We created secure, web-based technology which utilized existing Employer resources to successfully link staff with all necessary IT systems, including Employer Workday. New functionality added to the solution automated tme-consuming tasks that were previously done by hand and eye. New system is documented and easily extensible to meet changing department needs.",
       },
       {
         name: "Create Web Infrastructure",
