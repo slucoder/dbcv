@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dbcv/static/css/main.7863fbcd.css",
-    "main.js": "/dbcv/static/js/main.c31dff5f.js",
+    "main.css": "/dbcv/static/css/main.5aec359a.css",
+    "main.js": "/dbcv/static/js/main.000c7ebd.js",
     "static/js/885.05a14e96.chunk.js": "/dbcv/static/js/885.05a14e96.chunk.js",
     "static/js/453.be42175e.chunk.js": "/dbcv/static/js/453.be42175e.chunk.js",
     "static/media/also-sprach-zarathustra.wav": "/dbcv/static/media/also-sprach-zarathustra.a647ae30a9c8a2dd303b.wav",
@@ -26,13 +26,13 @@
     "static/media/capO.png": "/dbcv/static/media/capO.17acf6ca0c01f7a39fd4.png",
     "static/media/capB.png": "/dbcv/static/media/capB.3d68e9325ca9b5d91d12.png",
     "index.html": "/dbcv/index.html",
-    "main.7863fbcd.css.map": "/dbcv/static/css/main.7863fbcd.css.map",
-    "main.c31dff5f.js.map": "/dbcv/static/js/main.c31dff5f.js.map",
+    "main.5aec359a.css.map": "/dbcv/static/css/main.5aec359a.css.map",
+    "main.000c7ebd.js.map": "/dbcv/static/js/main.000c7ebd.js.map",
     "885.05a14e96.chunk.js.map": "/dbcv/static/js/885.05a14e96.chunk.js.map",
     "453.be42175e.chunk.js.map": "/dbcv/static/js/453.be42175e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7863fbcd.css",
-    "static/js/main.c31dff5f.js"
+    "static/css/main.5aec359a.css",
+    "static/js/main.000c7ebd.js"
   ]
 }
